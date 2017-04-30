@@ -31,6 +31,8 @@ Contains : HTML files for the web-view structure.
            CSS for styling the activity.
            JavaScript for handling all intents and asynchoronous calls to the API.
            APIs are hosted on http://www.mymsgapp.com/services
+           msg_v5.png consits of the dB schema of the application.
+           index.js contains the main logic with algorithims that makes the backbone of the system.
            
 Other Modules : Admin Panel which is hosted at http://test.terasol.in/moonis/msgadmin/
 
