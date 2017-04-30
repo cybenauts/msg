@@ -28,6 +28,6 @@ the application including front and back end.
            
 <b>Other Modules</b> : Admin Panel which is hosted at http://test.terasol.in/moonis/msgadmin/
 
-<b>Disclaimer<b> : <i>The project dosen't contain a public licence and is under a NDA issued by the stakeholders.
+<b>Disclaimer</b> : <i>The project dosen't contain a public licence and is under a NDA issued by the stakeholders.
 Any kind of infringement, illicit usage, or copy of concepts will be treated as an intellectual property theft 
 and will be dealth with utmost severity.</i>
