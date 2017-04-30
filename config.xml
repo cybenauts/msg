@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.terasoltechnologies.msg" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+    <name>MSG</name>
+    <description>
+      A Complete Social Networking Solution.
+    </description>
+    <author email="moonis.abidi@terasol.in" href="http://www.terasoltechnologies.com/">
+        Terasol Dev. Team.
+    </author>
+    <!--  <plugin name="phonegap-plugin-push" spec="1.6.0">
+    <variable name="SENDER_ID" value="85075801930" />
+    </plugin> -->
+
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
+   <!--  <preference name="AndroidPersistentFileLocation" value="Compatibility" /> -->
+    <!--  <preference name="Fullscreen" value="true" /> -->
+    <!-- <preference name="HideKeyboardFormAccessoryBar" value="true" /> -->
+    <preference name="Orientation" value="portrait" />
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+     <icon src="www/img/icon.png" />
+</widget>
