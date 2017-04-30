@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Celebrity Profile</title>
+</head>
+
+<body class="create-celeb-body">
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="header header-fixed">
+        <div class="header-title">Edit Page</div>
+    </div>
+    <div class="space-3"></div>
+    <!-- BODY -->
+    <div class="row">
+        <div class="create-celeb-cover" onclick="removeErrPro()" id="coverProPic">
+            <div class="upload-celeb-cover" onclick="popupOpenplain()" ></div>
+            <div class="celeb-profile-pic" onclick="popupOpenplain1()" id="proPic"></div>
+        </div>
+        <!--<div class="col-30 col-center text-center following">
+            <p>Following</p>
+            <num>200</num>
+        </div>
+        <div class="col-40" onclick="popupOpenplain()">
+            <div class="profile-pic-cont">
+                <div class="profile-pic" id="proPic" onclick="removeErrPro()">
+                    <img src="//:0" id="proImage" />
+                </div>
+                <div class="err-notify" id="picErr"></div>
+            </div>
+        </div>
+        <div class="col-30 col-center text-center following">
+            <p>Followers</p>
+            <num>100</num>
+        </div>-->
+    </div>
+    <div class="err-notify" id="picErr"></div>
+    <div class="profile-form celeb-profile-form">
+        <div class="input-cont">
+            <select id="proCategory" onchange="enDisGender()">
+                <option value="0" disabled selected>Select your page category</option>
+                <option value="Celebrity">Celebrity</option>
+                <option value="Community">Community</option>
+                <option value="Organization">Organization</option>
+            </select>
+            <div class="err-notify" id="catErr"></div>
+        </div>
+        <div class="input-cont">
+            <input type="text" placeholder="Your Name" id="proName" onclick="removeErrPro()" maxlength="64"/>
+            <div class="err-notify" id="nameErr"></div>
+        </div>
+        <div class="input-cont">
+            <input type="email" placeholder="Email Id" id="proEmail" onclick="removeErrPro()" maxlength="32"/>
+            <div class="err-notify" id="emailErr"></div>
+        </div>
+        <div class="input-cont" id="genderSelection">
+            <select id="proGender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <div class="err-notify" id="genderErr"></div>
+        </div>
+        <div class="input-cont">
+            <textarea id="proStatus" rows="5" cols="50" placeholder="Write about yourself..." onclick="removeErrPro()" maxlength="140"></textarea>
+            <div class="err-notify" id="statusErr"></div>
+        </div>
+    </div>
+  
+    <div class="row terms-cont profile-terms">
+        <div class="col-10">
+            <div id="checkbox" class="profile-chk">
+                <i id="check" class="fa fa-check"></i>
+            </div>
+        </div>
+        <div class="col90">
+            <div class="terms-label">
+                I agree to show my all the contents to everyone.
+            </div>
+            <div class="err-notify" id="privacyErr"></div>
+        </div>
+    </div>
+    <div class="space-1"></div>
+    <div class="login-btn">
+        <button class="button" onclick="updateCelebProfile()">Update</button>
+    </div>
+    <div class="space-1"></div>
+    <!-- Camera Selection -->
+    <!-- Plain Pop Up Screen-->
+    <div id="plain-popup" onclick="closepopupplain()" class="cd-popup" role="alert">
+        <div class="cd-popup-container camera-selection-cont">
+            <div class="row camera-selection">
+                <div class="col-50" onclick="takePictureC()">
+                    <img src="img/icons/camera.svg">
+                    <p>Camera</p>
+                </div>
+                <div class="col-50" onclick="getPictureC()">
+                    <img src="img/icons/gallery.svg">
+                    <p>Gallery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="plain-popup1" onclick="closepopupplain1()" class="cd-popup" role="alert">
+        <div class="cd-popup-container camera-selection-cont">
+            <div class="row camera-selection">
+                <div class="col-50" onclick="takePicture()">
+                    <img src="img/icons/camera.svg">
+                    <p>Camera</p>
+                </div>
+                <div class="col-50" onclick="getPicture()">
+                    <img src="img/icons/gallery.svg">
+                    <p>Gallery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cd-popup" role="alert" id="loading">
+        <div class="cd-popup-container">
+            <div class="row">
+                <div class="col-20 col-center plain-popup-loader">
+                    <div class="loader-1"></div>
+                </div>
+                <div class="col-80">
+                    <p>Uploading Data...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Uploading Loader -->
+    <div class="celebrity-loader" id="proLoader">
+        <div class="celebrity-loader-inner">
+            <img src="img/social/upload-to-cloud.svg" />
+            <div class="loader"></div>
+            <p>Updating Profile...</p>
+        </div>
+    </div>
+    <div class="celebrity-loader" id="preLoader">
+        <div class="celebrity-loader-inner">
+            <img src="img/social/upload-to-cloud.svg" />
+            <div class="loader"></div>
+            <p>Fetching Profile...</p>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+    $("#checkbox").click(function() {
+        $("#check").toggle();
+        $("#privacyErr").html("");
+        checkBox = document.getElementById("check").style.display == "none";
+    });
+    function enDisGender () {
+        if(document.getElementById("proCategory").value=='Celebrity'){
+            document.getElementById("genderSelection").style.display = 'block';
+        }else{
+            document.getElementById("genderSelection").style.display = 'none';
+        }
+    }
+    </script>
+</body>
+
+</html>

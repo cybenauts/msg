@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/pullrefresh.css">
+    <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Celebrity Profile</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick=" window.history.back()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title" id="proName">
+            <!-- Emma Stone -->
+        </div>
+        <div class="col-75"></div>
+        <div class="col-15 col-center" onclick="location.href = 'my_celeb_profile.html'">
+            <div class="counter-person-icon celeb-post-icon" id="proPic"></div>
+        </div>
+    </div>
+    <div class="social-header-space"></div>
+    <!-- Card Loader -->
+    <section id="cardLoader" style="display: block;">
+        <div class="container post-container text-container">
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
+                    <div class="animated-background facebook">
+                        <div class="background-masker header-top"></div>
+                        <div class="background-masker header-left"></div>
+                        <div class="background-masker header-right"></div>
+                        <div class="background-masker header-bottom"></div>
+                        <div class="background-masker subheader-left"></div>
+                        <div class="background-masker subheader-right"></div>
+                        <div class="background-masker subheader-bottom"></div>
+                        <div class="background-masker content-top"></div>
+                        <div class="background-masker content-first-end"></div>
+                        <div class="background-masker content-second-line"></div>
+                        <div class="background-masker content-second-end"></div>
+                        <div class="background-masker content-third-line"></div>
+                        <div class="background-masker content-third-end"></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="animated-background facebook">
+                        <div class="background-masker header-top"></div>
+                        <div class="background-masker header-left"></div>
+                        <div class="background-masker header-right"></div>
+                        <div class="background-masker header-bottom"></div>
+                        <div class="background-masker subheader-left"></div>
+                        <div class="background-masker subheader-right"></div>
+                        <div class="background-masker subheader-bottom"></div>
+                        <div class="background-masker content-top"></div>
+                        <div class="background-masker content-first-end"></div>
+                        <div class="background-masker content-second-line"></div>
+                        <div class="background-masker content-second-end"></div>
+                        <div class="background-masker content-third-line"></div>
+                        <div class="background-masker content-third-end"></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="animated-background facebook">
+                        <div class="background-masker header-top"></div>
+                        <div class="background-masker header-left"></div>
+                        <div class="background-masker header-right"></div>
+                        <div class="background-masker header-bottom"></div>
+                        <div class="background-masker subheader-left"></div>
+                        <div class="background-masker subheader-right"></div>
+                        <div class="background-masker subheader-bottom"></div>
+                        <div class="background-masker content-top"></div>
+                        <div class="background-masker content-first-end"></div>
+                        <div class="background-masker content-second-line"></div>
+                        <div class="background-masker content-second-end"></div>
+                        <div class="background-masker content-third-line"></div>
+                        <div class="background-masker content-third-end"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BODY -->
+    <div class="celeb-posts-body" id="postList">
+        <!-- POST 1 -->
+        <!-- <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+            <div class="col-15 post-pro-pic col-center">
+                <div class="dash-chat-img">
+                    <img src="img/list/arya_stark.jpg" />
+                </div>
+            </div>
+            <div class="col-55">
+                <p>Arya Stark</p>
+            </div>
+            <div class="col-30 post-time">
+                Oct 4 5:50 AM <i class="fa fa-ellipsis-v"></i>
+              
+                <div class="celeb-post-del">
+                    <ul class="list">
+                        <li class="item">Share</li>
+                        <li class="item">Delete</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+            Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+        </div>
+        <div class="post-pic" onclick="location.href = 'comment_screen.html'">
+            <img src="img/post/post_1.jpg" />
+        </div>
+        <div class="row post-comment">
+            <div class="col-50"><i class="fa fa-comment"></i> 5 comments</div>
+            <div class="col-50 text-right">
+                <i class="fa fa-share-alt"></i>
+                <i class="fa fa-download"></i>
+            </div>
+        </div> -->
+        <!-- POST 2 -->
+        <!-- <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+            <div class="col-15 post-pro-pic col-center">
+                <div class="dash-chat-img">
+                    <img src="img/list/arya_stark.jpg" />
+                </div>
+            </div>
+            <div class="col-55">
+                <p>Arya Stark</p>
+            </div>
+            <div class="col-30 post-time">
+                Oct 4 5:50 AM <i class="fa fa-ellipsis-v"></i>
+            </div>
+        </div>
+        <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+            Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+        </div>
+        <div class="post-comment">
+            <i class="fa fa-comment"></i> 5 comments
+        </div> -->
+    </div>
+    <!-- Footer -->
+    <div class="celeb-posts-footer">
+        <div class="celeb-posts-attach" onclick="popupText()"><img src="img/social/status.svg" /></div>
+        <div class="celeb-posts-attach" onclick="popupOpenplain()"><img src="img/social/camera.svg" /></div>
+        <div class="celeb-posts-attach" onclick="popupOpenplain1()"><img src="img/social/video.svg" /></div>
+        <div class="celeb-posts-attach" onclick="popupOpenplain2()"><img src="img/social/record.svg" /></div>
+        <div class="celeb-posts-attach" onclick="postCelebGetFile()"><img src="img/social/attachment.svg" /></div>
+    </div>
+    <!-- STATUS UPDATE -->
+    <!-- Plain Pop Up Screen-->
+    <!--  <div id="plain-popup" class="cd-popup status-update-outer" role="alert">
+        <div class="cd-popup-container status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?"></textarea>
+        </div>
+        <div class="row status-update-pic-cont">
+            <div class="col">
+                <div class="status-update-pic">
+                    <div class="celeb-status-pic"></div>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="button">POST</button>
+        <p>Choose</p>
+        <div class="row camera-selection">
+            <div class="col-50" onclick="takePicture()"><img src="img/icons/camera.svg"><p>Camera</p></div>
+            <div class="col-50" onclick="getPicture()"><img src="img/icons/gallery.svg"><p>Gallery</p></div>
+        </div>
+        <p onclick="closepopupplain()"><img src="img/icons/cancel.svg" /></p>
+    </div> -->
+    <!-- Waiting Status -->
+    <!-- SET IN CELEB PENDING HTML -->
+    <!--   <div class="celeb-request-pending" id="requestPending">
+        <img src="img/social/done.svg" />
+        <p class="celeb-name">Hi</p>
+        <p class="celeb-approval-statement">
+            Your page request is currently in processing stage and it will be 
+            operational as soon as your details will be verified.            
+        </p>
+        <p class="celeb-thanks-statement">
+            Thanks for your patience!
+        </p>
+        <button class="button" onclick="location.href = 'home.html'">Take me back</button>
+    </div> -->
+    <!-- Initiate Loader Next -->
+    <div class="celeb-profile-load-more" onclick="toggleLoaderMyCelebrityPost()">
+        <p id="loadMore">Load More</p>
+        <div class="loading-more-posts" id="postLoader">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+        </div>
+    </div>
+    <div class="space-3"></div>
+    <!-- Plain Pop Up Screen TEXT-->
+    <div id="textPop" class="cd-popup status-update-outer" role="alert">
+        <div class="cd-popup-container status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Status..." id="proText"></textarea>
+        </div>
+        <button class="button" onclick="uploadCelebText()">POST</button>
+        <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Plain Pop Up Screen VIDEO-->
+    <div id="videoPop" class="cd-popup status-update-outer" role="alert">
+        <div class="cd-popup-container status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="videoDesc"></textarea>
+        </div>
+        <div class="row status-update-pic-cont">
+            <div class="col">
+                <div class="status-update-pic">
+                    <video width="100" height="50">
+                        <source src="movie.mp4" type="video/mp4" id="videoImage">
+                    </video>
+                    <!--  <img src="img/list/daenerys_targaryen.jpg" id="videoImage" /> -->
+                </div>
+                <div id="myProgress">
+                    <div class="myBar"></div>
+                </div>
+            </div>
+        </div>
+        <button class="button" onclick="uploadCelebVideo()">POST</button>
+        <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Plain Pop Up Screen AUDIO-->
+    <div id="audioPop" class="cd-popup status-update-outer" role="alert">
+        <div class="cd-popup-container status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="audioDesc"></textarea>
+        </div>
+        <div class="row status-update-pic-cont">
+            <div class="col">
+                <div class="status-update-pic">
+                    <audio controls autoplay>
+                        <source src="movie.mp3" type="audio/mpeg" id="audioImage">
+                    </audio>
+                </div>
+                <div id="myProgress">
+                    <div class="myBar"></div>
+                </div>
+            </div>
+        </div>
+        <button class="button" onclick="uploadCelebAudio()">POST</button>
+        <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Plain Pop Up Screen PHOTO-->
+    <div id="photoPop" class="cd-popup status-update-outer" role="alert">
+        <div class="cd-popup-container status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="photoDesc"></textarea>
+        </div>
+        <div class="row status-update-pic-cont">
+            <div class="col">
+                <div class="status-update-pic">
+                    <div class="status-update-pic-outer" id="photoImage">
+                        <!--    <img src="img/list/daenerys_targaryen.jpg"  /> -->
+                    </div>
+                </div>
+                <div id="myProgress">
+                    <div class="myBar"></div>
+                </div>
+            </div>
+        </div>
+        <button class="button" onclick="uploadCelebPhoto()">POST</button>
+        <!--  <p>Choose</p>
+        <div class="row camera-selection">
+            <div class="col-50" onclick="takePicture()"><img src="img/icons/camera.svg"><p>Camera</p></div>
+            <div class="col-50" onclick="getPicture()"><img src="img/icons/gallery.svg"><p>Gallery</p></div>
+        </div> -->
+        <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Plain Pop Up Screen FILE-->
+    <div id="filePop" class="cd-popup status-update-outer" role="alert">
+        <div class="cd-popup-container status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="fileDesc"></textarea>
+        </div>
+        <div class="row status-update-pic-cont">
+            <div class="col">
+                <div class="status-update-pic" id="fileImage">
+                </div>
+                <div id="myProgress">
+                    <div class="myBar"></div>
+                </div>
+            </div>
+        </div>
+        <button class="button" onclick="uploadCelebFile()">POST</button>
+        <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <div id="plain-popup" onclick="closepopupplain()" class="cd-popup" role="alert">
+        <div class="cd-popup-container camera-selection-cont">
+            <div class="row camera-selection">
+                <div class="col-50" onclick="postCelebTakePhoto()"><img src="img/icons/camera.svg">
+                    <p>Camera</p>
+                </div>
+                <div class="col-50" onclick="postCelebGetPhoto()"><img src="img/icons/gallery.svg">
+                    <p>Gallery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="plain-popup1" onclick="closepopupplain1()" class="cd-popup" role="alert">
+        <div class="cd-popup-container camera-selection-cont">
+            <div class="row camera-selection">
+                <div class="col-50" onclick="postCelebTakeVideo()"><img src="img/icons/video-camera.svg">
+                    <p>Camera</p>
+                </div>
+                <div class="col-50" onclick="postCelebGetVideo()"><img src="img/icons/video-gallery.svg">
+                    <p>Gallery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="plain-popup2" onclick="closepopupplain2()" class="cd-popup" role="alert">
+        <div class="cd-popup-container camera-selection-cont">
+            <div class="row camera-selection">
+                <div class="col-50" onclick="postCelebTakeAudio()"><img src="img/icons/mic.svg">
+                    <p>Microphone</p>
+                </div>
+                <div class="col-50" onclick="postCelebGetAudio()"><img src="img/icons/headphones.svg">
+                    <p>Stored</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popupNotification" class="notificationOuter" role="alert">
+        <div class="notificationInner row row-center" id="popupNotificationText">
+            <p>File Downloading Started...</p>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</body>
+
+</html>

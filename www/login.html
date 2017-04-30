@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Login</title>
+</head>
+
+<body class="login-bg">
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="login-head">
+        <img src="img/login_img.png" />
+    </div>
+    <!-- BODY -->
+    <div class="list login-form">
+         <div class="item-icon input-icon login-country login-cont" onclick="location.href = 'country_code.html'">
+            <i class="fa fa-globe"></i>
+            <input class="white-clr" type="tel" placeholder="India"  id="country" readonly />
+            <div class="dropdown-arrow"><img src="img/icons/sort-down.svg" /></div>
+        </div>
+        <div class="row login-cont">
+            <div class="item-icon login-field input-icon col-25">
+                <input class="white-clr" type="tel" placeholder="+91" id="countryCode" readonly />
+            </div>
+            <div class="col-5"></div>
+            <div class="item-icon login-field input-icon col-70 err-input">
+                <input class="white-clr" type="tel" placeholder="Phone Number" id="phoneNo" maxlength="10" onclick="removeErr()" />
+            </div>
+        </div>
+        <div class="err-notify" id="phoneNoNotify"></div>
+        <div class="row terms-cont">
+            <div class="col-10">
+                <div id="checkbox" class="custom-chk">
+                    <i id="check" class="fa fa-check"></i>
+                </div>
+            </div>
+            <div class="col90">
+                <div class="terms-label">
+                    I agree to the
+                    <url class="text-link" onclick="location.href='terms.html'">Terms & Conditions</url>
+                </div>
+                 <div class="err-notify" id="tncNotify"></div>
+            </div>
+        </div>
+    </div>
+    <div class="login-btn">
+        <button class="button" onclick="sendOtp()" id="sendOtpButton">Next</button>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+    // $(document).ready(function() {
+       
+        
+    // });
+    $("#checkbox").click(function() {
+        $("#check").toggle();
+        $("#tncNotify").html("");
+     checkBox=document.getElementById("check").style.display=="none";
+    });
+    </script>
+      <script type="text/javascript" src="js/countrycode.js"></script>
+     <script type="text/javascript" src="js/index.js"></script>
+  
+</body>
+
+</html>

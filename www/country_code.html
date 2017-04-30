@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Your Country</title>
+</head>
+<body class="dash-body">
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="location.href='login.html'"><img src="img/icons/left-arrow.svg"></div>
+        <div class="header-title">Select Your Country</div>
+        <div class="col-80"></div>
+        <div class="col-10 text-center" id="search"><img src="img/icons/search.svg" /></div>
+    </div>
+    <div class="header-space"></div>
+
+    <!-- BODY -->
+    <div class="content">
+        <div class="search-list-cont country-code">
+            <ul class="list" id="listing">
+               <!--  <li class="item item-icon"><i class="fa fa-globe"></i><span class="country-name">kvnnvl vndlo kdvniv  iofjvoif dijvo diocsjd ijco dsci </span><span class="item-note-right">+91</span></li>
+                <li class="item item-icon"><i class="fa fa-globe"></i>India<span class="item-note-right">+91</span></li>
+                <li class="item item-icon"><i class="fa fa-globe"></i>India<span class="item-note-right">+91</span></li>
+                <li class="item item-icon"><i class="fa fa-globe"></i>India<span class="item-note-right">+91</span></li>
+                <li class="item item-icon"><i class="fa fa-globe"></i>India<span class="item-note-right">+91</span></li>
+                <li class="item item-icon"><i class="fa fa-globe"></i>India<span class="item-note-right">+91</span></li> -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-fixed-search">
+        <div class="search-header">
+            <div class="search-back" onclick="ccClear()">
+                <img src="img/icons/back_grey.svg" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." onkeydown="ccSearch(this)" onkeyup="ccSearch(this)" />
+            </div>
+            <div class="search-submit" onclick="ccClear()">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+      <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+      <script type="text/javascript" src="js/countrycode.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        document.getElementById("listing").innerHTML=localStorage.getItem("CCO");
+
+         //Search show & hide
+        $("#search").on('click', function () {
+            $(".dash-fixed-search").show();
+        });
+        $(".search-back").on('click', function () {
+            $(".dash-fixed-search").hide();
+        });
+
+        
+    </script>
+</body>
+</html>

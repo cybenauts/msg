@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Friend Profile</title>
+ 
+</head>
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+    <div class="header header-fixed">
+        <div class="col-10 text-center" onclick=" window.history.back()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title" id="headTitle"><!-- Daenerys --></div>
+        <div class="col-90"></div>
+    </div>
+    <div class="social-header-space"></div>
+
+    <!-- BODY -->
+    <div class="row my-profile-pic-bg">
+        <div class="col-30 col-center text-center following">
+            <!--<p>Following</p>
+            <num>200</num>-->
+        </div>
+        <div class="col-40">
+            <div class="user-profile-pic-cont">
+                <div class="profile-pic user-profile-pic my-profile-pic" onclick="profileFullImage(this)">
+                </div>
+            </div>
+        </div>
+        <div class="col-30 col-center text-center following">
+            <!--<p>Followers</p>
+            <num>100</num>-->
+        </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="card my-profile-details" id="infoFetch">
+    <!--     <p class="name">Daenerys Targaryen <span> (Female)</span></p>
+        <p class="status">
+            Unity is strength… when there is teamwork and collaboration,
+            wonderful things can be achieved
+        </p>
+        <p class="mobile">+91 9999999999</p>
+        <p class="email">daenerya@got.com</p>
+
+
+ 
+        <div class="user-profile-follow">
+            <button class="button">Add Friend</button>
+            <button class="button pending">Pending...</button>
+        </div>
+        <p class="friend-req">Friend Request <label> 9.50am</label></p>
+        <div class="row user-profile-friend-req">
+            <div class="col-50"><button class="button">Accept</button></div>
+            <div class="col-50"><button class="button reject">Reject</button></div>
+        </div>
+
+
+        <ul class="list friend-profile-block">
+            <li class="item">
+                Block Daenerys
+                <label class="switch">
+                    <input type="checkbox" class="switch__input" >
+                    <div class="switch__toggle"></div>
+                </label>
+            </li>
+        </ul> 
+
+     <div class="space-1"></div>
+        <div class="rule-80"></div>
+        <div class="row my-profile-details-following">
+            <div class="col-80">Following</div>
+            <div class="col-20">7</div>
+        </div>
+
+        -->
+    </div>
+<div class="space-1"></div>
+     <!-- Celebrity Posts -->
+    <div class="celeb-posts-body" id="postList">
+        <!-- POST 1 -->
+      <!--  <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+            <div class="col-15 post-pro-pic col-center">
+                <div class="dash-chat-img">
+                    <img src="img/list/arya_stark.jpg" />
+                </div>
+            </div>
+            <div class="col-55">
+                <p>Arya Stark</p>
+            </div>
+            <div class="col-30 post-time">
+                Oct 4 5:50 AM 
+                
+            </div>
+        </div>
+        <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+            Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+        </div>
+        <div class="post-pic" onclick="location.href = 'comment_screen.html'">
+            <img src="img/post/post_1.jpg" />
+        </div>
+        <div class="row post-comment">
+            <div class="col-50"><i class="fa fa-comment"></i> 5 comments</div>
+            <div class="col-50 text-right">
+                <i class="fa fa-share-alt"></i>
+                <i class="fa fa-download"></i>
+            </div>
+        </div> -->
+        
+        <!-- POST 2 -->
+       <!--  <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+            <div class="col-15 post-pro-pic col-center">
+                <div class="dash-chat-img">
+                    <img src="img/list/arya_stark.jpg" />
+                </div>
+            </div>
+            <div class="col-55">
+                <p>Arya Stark</p>
+            </div>
+            <div class="col-30 post-time">
+                Oct 4 5:50 AM 
+            </div>
+        </div>
+        <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+            Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+        </div>
+        <div class="post-comment">
+            <i class="fa fa-comment"></i> 5 comments
+        </div>
+    </div> -->
+</div>
+    <!-- End -->
+    <!-- <div class="celeb-profile-load-more" id="loadMore" onclick="toggleLoaderFriendProfile()">
+        <p>Load More</p>
+        <p>...</p>
+    </div> -->
+
+    <div class="row" id="proLoader" style="display:none">
+        <div class="loader-posts">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+  <div class="celebrity-loader" id="preLoader">
+        <div class="celebrity-loader-inner">
+            <img src="img/loaders/profile.svg" />
+            <div class="loader"></div>
+            <p id="loaderContent">Fetching Profile...</p>
+        </div>
+    </div>
+     <div id="popupNotification" class="notificationOuter" role="alert">
+            <div class="notificationInner row row-center" id="popupNotificationText">
+                <p>File Downloading Started...</p>
+            </div>
+        </div>
+
+    <!--<div class="user-profile-about">
+        Princess of House Targaryen, Daenerys lives in exile in Essos with her advisors
+        and dragons. Dany rallied the Unsullied of Astapor to her cause and continues
+        to grow the army she needs to take back the throne.
+    </div>-->
+    
+    <!-- Following Pop Up -->
+    <div class="celeb-following-outer" id="flDisp" onclick="hideFollowingList()">
+        <div class="celeb-following-inner">
+            <header>Following</header>
+            <div class="rule-80"></div>
+            <!-- #1 -->
+            <div id="followingList">
+                
+            </div>
+           <!--  <div class="row">
+                <div class="col-20">
+                    <div class="celeb-pro-pic-cont"></div>
+                </div>
+                <div class="col-80">
+                    <div class="celeb-pro-desc">
+                        <h3>Aishwarya Rai Baccahan</h3>
+                        <p>
+                            Unity is strength… when there is teamwork and collaboration,
+                            wonderful things can be achieved.
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+
+           <!-- #2 -->
+           <!--  <div class="row">
+                <div class="col-20">
+                    <div class="celeb-pro-pic-cont"></div>
+                </div>
+                <div class="col-80">
+                    <div class="celeb-pro-desc">
+                        <h3>Aishwarya Rai Baccahan</h3>
+                        <p>
+                            Unity is strength.
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Tabular Overlay -->
+    <div class="tabular-overlay-outer tabular-overlay-img" id="imageAction" onclick="this.style.display='none';">
+        <div class="tabular-overlay-inner">
+            <img src="//:0" alt="" id="fullImage">
+        </div>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+        // $("#cbx").click(function () {
+        //      var status=document.getElementById("cb").checked;
+        //      if(status){
+        //         if(confirm("Are You Sure You Want To Block?")){
+        //             block();
+        //         }
+        //      }else{
+        //         if(confirm("Are You Sure You Want To unBlock?")){
+        //             unBlock();
+        //         }
+        //      }
+        // });
+    </script>
+
+</body>
+</html>

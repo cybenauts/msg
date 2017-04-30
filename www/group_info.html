@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Group Info</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="goBack()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Group Info</div>
+        <div class="col-80"></div>
+        <div class="col-10 text-center" id="groupEditOption" style="display: none" onclick="location.href = 'groupedit.html'"><img src="img/icons/edit.svg" /></div>
+    </div>
+    <div class="social-header-space"></div>
+    <!-- BODY -->
+    <!-- Profile Picture -->
+    <div class="row">
+        <div class="col-30 col-center text-center following">
+            <!--<p>Following</p>
+            <num>200</num>-->
+        </div>
+        <div class="col-40">
+            <div class="user-profile-pic-cont">
+                <div class="profile-pic user-profile-pic" id="grpPhoto" onclick="profileFullImage(this)">
+                </div>
+            </div>
+        </div>
+        <div class="col-30 col-center text-center following">
+            <!--<p>Followers</p>
+            <num>100</num>-->
+        </div>
+    </div>
+    <div class="group-details">
+        <p class="name" id="grpName"><!-- Daenerys Targaryen --></p>
+        <p class="age" id="grpCreated"><!-- Created on 10 Nov 2016 --></p>
+    </div>
+    <div class="contact-cont">
+        <!-- Letter Container -->
+        <div class="group-members-cont" id="membersList">
+
+           <!--  <div class="row">
+                <div class="col-20" onclick="location.href = 'friend_profile.html'">
+                    <div class="dash-chat-img contact-person-icon">
+                        <img src="img/list/arya_stark.jpg">
+                    </div>
+                </div>
+                <div class="col-70 col-center" onclick="location.href='singlechat.html'">
+                    <p class="contact-person-name">Arya Stark</p>
+                    <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999 </p>
+                </div>
+                <div class="col-10 dash-chat-notify">
+                    <i class="fa fa-trash-o"></i>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+    <ul class="list group-setting-cont">
+        <li class="item item-icon" onclick="participantList()" id="PGRP" style="display:none"><i class="fa fa-address-card-o"></i>Add Participants</li>
+        <li class="item item-icon" onclick="leaveGroup()" id="LGRP"><i class="fa fa-sign-out"></i>Leave Group</li>
+        <li class="item item-icon" onclick="deleteGroup()" id="DGRP" style="display:none"><i class="fa fa-trash"></i>Delete Group</li>
+    </ul>
+    <!-- FOOTER -->
+    <!--<div class="material-notify push-s" onclick="popupOpenbtn2()">
+        <div class="notify-outer">
+            <img src="img/icons/add.svg">
+        </div>
+    </div>-->
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-search">
+        <div class="search-header">
+            <div class="search-back">
+                <img src="img/icons/back_grey.svg" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." />
+            </div>
+            <div class="search-submit" onclick="clearFunction()">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+    </div>
+    <!-- ADD CONTACTS -->
+    <!--<div id="popup-btn2" class="cd-popup" role="alert">
+        <div class="cd-popup-container">
+            <div class="add-contact-head">Add Contact</div>
+            <div class="alert-line"></div>
+            <div class="add-contact">
+                <div>
+                    <input type="text" placeholder="Name">
+                </div>
+                <div>
+                    <input type="tel" placeholder="Number">
+                </div>
+            </div>
+            <div class="alert-line"></div>
+            <div class="row popupbtn2-option">
+                <div class="col-50 push-m" onclick="closepopupbtn2()">Save</div>
+                <div class="col-50 popup2-cancel push-m" onclick="closepopupbtn2()">cancel</div>
+            </div>
+        </div>
+    </div>-->
+
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-search">
+        <div class="contact-inner contact-overlay" id="contactList" onclick="removeGrpErr()">
+       
+           
+            <!-- #1 -->
+           <!--  <div class="row">
+                <div class="col-20">
+                    <div class="dash-chat-img contact-person-icon">
+                        <img src="img/list/arya_stark.jpg">
+                    </div>
+                </div>
+                <div class="col-70 col-center">
+                    <p class="contact-person-name">Arya Stark</p>
+                    <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999</p>
+                </div>
+                <div class="col-10">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <div class="checkbox__checkmark"></div>
+                    </label>
+                </div>
+            </div> -->
+            <div class="space-5"></div>
+        </div>
+        <div class="err-notify contact-overlay-err" id="displayListErr"></div>
+        <div class="search-header">
+            <div class="search-back">
+                <img src="img/icons/back_grey.svg" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." />
+            </div>
+            <div class="search-submit" onclick="clearFunction()">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+          
+        <button class="button" onclick="addParticipant()">Add</button>
+    </div>
+    <!-- Contact Overlay -->
+    <!--<div class="contact-overlay">
+        </div>-->
+        
+      <div class="cd-popup" role="alert" id="loading">
+       <div class="cd-popup-container">
+           <div class="row">
+               <div class="col-20 col-center plain-popup-loader"><div class="loader-1"></div></div>
+               <div class="col-80"><p>Adding Members...</p></div>
+           </div>
+       </div>
+      </div>
+        <!-- Tabular Overlay -->
+    <div class="tabular-overlay-outer tabular-overlay-img" id="imageAction" onclick="this.style.display='none';">
+        <div class="tabular-overlay-inner">
+            <img src="//:0" alt="" id="fullImage">
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+  
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>    
+    <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+        //Search show & hide
+        $("#search").on('click', function () {
+            $(".dash-search").show();
+        });
+        $(".search-back").on('click', function () {
+            $(".dash-search").hide();
+        });
+
+        //Clear Search
+        function clearFunction() {
+            document.getElementById("search-input").value = "";
+        }
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

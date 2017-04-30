@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/pullrefresh.css">
+    <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    window.localStorage.setItem("VALIDATED", "HOME");
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed row-center">
+        <div class="col-10 text-center" id="header"><img src="img/icons/menu.svg" /></div>
+        <div class="header-title rotate0" onclick="getGroupList(this)" id="containerRotatingImg"><span id="currentPage">MSG</span><span> <img src="img/icons/down-arrow.svg" id="rotatingImg" /></span></div>
+        <div class="col-70"></div>
+        <div class="col-10 col-center" onclick="location.href = 'notifications.html'"><img src="img/icons/notification.svg" />
+            <div class="header-notify" id="notificationCount">0</div>
+        </div>
+        <div class="col-10 text-center" id="search" style="visibility: hidden;"><img src="img/icons/search.svg" /></div>
+    </div>
+    <!-- NAVIGATION -->
+    <div class="wrap" id="wrap"></div>
+    <div class="nav nav-closed" id="nav">
+        <div class="nav-content">
+            <div class="nav-cover">
+                <div class="side-nav-profile" id="profilePicture">
+                    <!-- <img src="//:0" id="proDP"/> -->
+                </div>
+                <p id="profileQuote"></p>
+            </div>
+            <ul class="list side-nav-list msg-side-nav">
+                <li class="item item-icon" onclick="location.href = 'profile.html'"><img src="img/side_nav/profile.svg" /> My Profile</li>
+                <li class="item item-icon" onclick="location.href = 'groups.html'"><img src="img/side_nav/groups.svg" /> Groups</li>
+                <li id="celebStatus" style="display:none" class="item item-icon" onclick="location.href = 'celeb_posts.html'"><img src="img/side_nav/my_page.svg" /> My Page</li>
+                <li class="item item-icon" onclick="location.href = 'contacts.html'"><img src="img/side_nav/contacts.svg" /> Contacts</li>
+                <!-- <li class="item item-icon" onclick="location.href = 'wallet.html'"><img src="img/side_nav/wallet.svg" /> Wallet</li> -->
+                <!-- <li class="item item-icon" onclick="location.href = 'stickers.html'"><img src="img/side_nav/stickers.svg" /> Stickers</li> -->
+                <li class="item item-icon" onclick="location.href = 'privacy.html'"><img src="img/side_nav/privacy.svg" /> Privacy Policy</li>
+                <li class="item item-icon" onclick="appSharing()"><img src="img/side_nav/share.svg" /> Share MSG</li>
+            </ul>
+        </div>
+    </div>
+    <!-- BODY -->
+    <div class="content">
+        <!-- Header Space -->
+        <div class="social-header-space"></div>
+        <div class="tabs-outer">
+            <div class="tabs-cont">
+                <div class="inner-tabs" onclick="location.href='social.html'">
+                    SOCIAL
+                </div>
+                <div class="inner-tabs  selected-tab">
+                    <p>HOME</p>
+                </div>
+                <div class="inner-tabs" onclick="location.href='chat.html'">
+                    <p>CHAT</p>
+                </div>
+            </div>
+        </div>
+        <div class="space-2"></div>
+        <!-- Initiate Loader Previous-->
+        <!--<div class="celeb-profile-load-more" id="loadNew" onclick="toggleHomeLoaderPrevious()">
+            <p>New Posts</p>
+            <p>...</p>
+        </div>-->
+        <!-- Line Loaders -->
+        <!--<div class="row" id="proLoaderNew" style="display:none">
+            <div class="loader-posts">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>-->
+        <!-- Tabs Space -->
+        <!-- <div class="space-25"></div> -->
+        <!-- Card Loader -->
+        <section id="cardLoader" style="display: block;">
+            <div class="container post-container text-container">
+                <div class="timeline-wrapper">
+                    <div class="timeline-item">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top"></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end"></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top"></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end"></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top"></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="wrapper" style="display: none;">
+            <div class="scroller">
+                <div id="pullDown">
+                    <div class="pullDownIcon"></div>
+                    <div class="pullDownLabel">Pull down to refresh...</div>
+                    <div class="pullloading loading--double" id="preLoader"></div>
+                </div>
+                <div class="chat-cont" id="dataFeed" onclick="hideOptions(event)">
+                    <!-- POST 1 -->
+                    <!-- <div class="post-container">
+                        <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+                            <div class="col-15 post-pro-pic col-center">
+                                <div class="dash-chat-img"></div>
+                            </div>
+                            <div class="col-55" onClick="alert('hi')"><p>Arya Stark</p></div>
+                            <div class="col-30 post-time">
+                                Oct 4 5:50 AM
+                                <i class="fa fa-ellipsis-v" onclick="showDeleteOptions(this)"></i>
+                                <div class="celeb-post-del">
+                                    <ul class="list">
+                                        <li class="item">Delete</li>
+                                        <li class="item">Share</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+                            Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+                        </div>
+                        <div class="post-pic" onclick="location.href = 'comment_screen.html'">
+                            <img src="img/post/post_1.jpg" />
+                        </div>
+                        <div class="row post-comment">
+                            <div class="col-50"><i class="fa fa-comment"></i> 5 comments</div>
+                            <div class="col-50 text-right"><i class="fa fa-download"></i></div>
+                        </div>
+                    </div> -->
+                    <!-- POST 2 -->
+                    <!-- <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+                        <div class="col-15 post-pro-pic col-center">
+                            <div class="dash-chat-img">
+                                <img src="img/list/arya_stark.jpg" />
+                            </div>
+                        </div>
+                        <div class="col-60">
+                            <p>Arya Stark</p>
+                        </div>
+                        <div class="col-25 post-time">
+                            Oct 4 5:50 AM
+                        </div>
+                    </div>
+                    <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+                        Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+                    </div>
+                    <div class="post-comment">
+                        <i class="fa fa-comment"></i> 5 comments
+                    </div> -->
+                    <!-- Shared Post -->
+                    <!--      <div class="post-container">
+                        <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+                            <div class="col-15 post-pro-pic col-center">
+                                <div class="dash-chat-img"></div>
+                            </div>
+                            <div class="col-55" onClick="alert('hi')"><p>Arya Stark <span>shared</span></p></div>
+                            <div class="col-30 post-time">
+                                Oct 4 5:50 AM
+                                <i class="fa fa-ellipsis-v" onclick="showDeleteOptions(this)"></i>
+                                <div class="celeb-post-del">
+                                    <ul class="list">
+                                        <li class="item">Delete</li>
+                                        <li class="item">Share</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shared-post">
+                            <div class="row post-head" onclick="location.href = 'friend_profile.html'">
+                                <div class="col-15 post-pro-pic col-center">
+                                    <div class="dash-chat-img"></div>
+                                </div>
+                                <div class="col-55" onClick="alert('hi')"><p>Arya Stark</p></div>
+                                <div class="col-30 post-time">Oct 4 5:50 AM</div>
+                            </div>
+                            
+                            <div class="post-desc" onclick="location.href = 'comment_screen.html'">
+                                Arya Stark is the third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully.
+                            </div>
+                         
+                            <div class="post-pic" onclick="location.href = 'comment_screen.html'">
+                                <img src="img/post/post_1.jpg" />
+                            </div>
+                        </div>
+
+                        <div class="row post-comment">
+                            <div class="col-50"><i class="fa fa-comment"></i> 5 comments</div>
+                            <div class="col-50 text-right"><i class="fa fa-download"></i></div>
+                        </div>
+                    </div> -->
+                    <!--         </div> -->
+                    <!--<div class="header-space"></div>
+                    <div class="header-space"></div>-->
+                </div>
+                <div id="pullUp">
+                    <div class="pullUpIcon"></div>
+                    <div class="pullUpLabel">Pull up to refresh...</div>
+                    <div class="pullloading loading--double" id="postLoader"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Initiate Loader Next -->
+        <!--<div class="celeb-profile-load-more" id="loadMore" onclick="toggleHomeLoader()">
+            <p>Load More Posts</p>
+            <div class="loading-more-posts">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>-->
+        <!-- Line Loaders -->
+        <!--<div class="row" id="proLoader" style="display:none">
+            <div class="loader-posts">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>-->
+        <!-- FOOTER -->
+        <div class="footer-dash">
+            <!-- Footer -->
+            <div class="space-3"></div>
+            <div class="celeb-posts-footer" id="postSendingBox">
+                <div class="celeb-posts-attach" onclick="popupText()"><img src="img/social/new/status.svg" /></div>
+                <div class="celeb-posts-attach" onclick="popupOpenplain()"><img src="img/social/new/camera.svg" /></div>
+                <div class="celeb-posts-attach" onclick="popupOpenplain1()"><img src="img/social/new/video.svg" /></div>
+                <div class="celeb-posts-attach" onclick="popupOpenplain2()"><img src="img/social/new/record.svg" /></div>
+                <div class="celeb-posts-attach" onclick="postGetFile()" id="buttonSwapGetFile"><img src="img/social/new/attachment.svg" /></div>
+            </div>
+        </div>
+        <div id="mediumExpression" style="display: none"> </div>
+        <!-- file Downloading -->
+        <div id="popupNotification" class="notificationOuter" role="alert">
+            <div class="notificationInner row row-center" id="popupNotificationText">
+                <p>File Downloading Started...</p>
+            </div>
+        </div>
+        <!-- SEARCH OVERLAY -->
+        <div class="dash-search">
+            <div class="search-header">
+                <div class="search-back">
+                    <img src="img/icons/back_grey.svg" />
+                </div>
+                <div class="search-input">
+                    <input type="search" id="search-input" placeholder="Search for..." />
+                </div>
+                <div class="search-submit" onclick="clearFunction()">
+                    <img src="img/icons/cross.svg" />
+                </div>
+            </div>
+        </div>
+        <!-- STATUS UPDATE HOME -->
+        <!-- Plain Pop Up TEXT-->
+        <div id="textPop" class="cd-popup status-update-outer" role="alert">
+            <div class="cd-popup-container status-update-cont">
+                <textarea rows="2" cols="50" placeholder="Status..." id="proText"></textarea>
+            </div>
+            <button class="button" onclick="uploadText()" id="buttonSwapText">POST</button>
+            <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+        </div>
+        <!-- Plain Pop Up VIDEO-->
+        <div id="videoPop" class="cd-popup status-update-outer" role="alert">
+            <div class="cd-popup-container status-update-cont">
+                <textarea rows="2" cols="50" placeholder="Caption?" id="videoDesc"></textarea>
+            </div>
+            <div class="row status-update-pic-cont">
+                <div class="col">
+                    <div class="status-update-pic">
+                        <video controls autoplay>
+                            <source src="movie.mp4" type="video/mp4" id="videoImage">
+                        </video>
+                        <!--  <img src="img/list/daenerys_targaryen.jpg" id="videoImage" /> -->
+                        <div id="myProgress">
+                            <div class="myBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="button" onclick="uploadVideo()" id="buttonSwapVideo">POST</button>
+            <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+        </div>
+        <!-- Plain Pop Up AUDIO-->
+        <div id="audioPop" class="cd-popup status-update-outer" role="alert">
+            <div class="cd-popup-container status-update-cont">
+                <textarea rows="2" cols="50" placeholder="Caption?" id="audioDesc"></textarea>
+            </div>
+            <div class="row status-update-pic-cont">
+                <div class="col">
+                    <div class="status-update-pic">
+                        <audio controls autoplay>
+                            <source src="movie.mp3" type="audio/mpeg" id="audioImage">
+                        </audio>
+                        <div id="myProgress">
+                            <div class="myBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="button" onclick="uploadAudio()" id="buttonSwapAudio">POST</button>
+            <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+        </div>
+        <!-- Plain Pop Up PHOTO-->
+        <div id="photoPop" class="cd-popup status-update-outer" role="alert">
+            <div class="cd-popup-container status-update-cont">
+                <textarea rows="2" cols="50" placeholder="Caption?" id="photoDesc"></textarea>
+            </div>
+            <div class="row status-update-pic-cont">
+                <div class="col">
+                    <div class="status-update-pic">
+                        <div class="status-update-pic-outer" id="photoImage">
+                            <!--    <img src="img/list/daenerys_targaryen.jpg"  /> -->
+                        </div>
+                        <div id="myProgress">
+                            <div class="myBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="button" onclick="uploadPhoto()" id="buttonSwapPhoto">POST</button>
+            <!--  <p>Choose</p>
+            <div class="row camera-selection">
+                <div class="col-50" onclick="takePicture()"><img src="img/icons/camera.svg"><p>Camera</p></div>
+                <div class="col-50" onclick="getPicture()"><img src="img/icons/gallery.svg"><p>Gallery</p></div>
+            </div> -->
+            <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+        </div>
+        <!-- Plain Pop Up Screen FILE-->
+        <div id="filePop" class="cd-popup status-update-outer" role="alert">
+            <div class="cd-popup-container status-update-cont">
+                <textarea rows="2" cols="50" placeholder="Caption?" id="fileDesc"></textarea>
+            </div>
+            <div class="row status-update-pic-cont">
+                <div class="col">
+                    <div class="status-update-pic">
+                        <div class="status-update-pic-outer" id="fileImage">
+                            <!--    <img src="img/list/daenerys_targaryen.jpg"  /> -->
+                        </div>
+                        <div id="myProgress">
+                            <div class="myBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="button" onclick="uploadFile()" id="buttonSwapFile">POST</button>
+            <p onclick="closePopup()"><img src="img/icons/cancel.svg" /></p>
+        </div>
+        <!-- Pre POPUP -->
+        <div id="plain-popup" onclick="closepopupplain()" class="cd-popup" role="alert">
+            <div class="cd-popup-container camera-selection-cont">
+                <div class="row camera-selection">
+                    <div class="col-50" onclick="postTakePhoto()" id="buttonSwapTakePhoto">
+                        <img src="img/icons/camera.svg">
+                        <p>Camera</p>
+                    </div>
+                    <div class="col-50" onclick="postGetPhoto()" id="buttonSwapGetPhoto">
+                        <img src="img/icons/gallery.svg">
+                        <p>Gallery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="plain-popup1" onclick="closepopupplain1()" class="cd-popup" role="alert">
+            <div class="cd-popup-container camera-selection-cont">
+                <div class="row camera-selection">
+                    <div class="col-50" onclick="postTakeVideo()" id="buttonSwapTakeVideo">
+                        <img src="img/icons/video-camera.svg">
+                        <p>Camera</p>
+                    </div>
+                    <div class="col-50" onclick="postGetVideo()" id="buttonSwapGetVideo">
+                        <img src="img/icons/video-gallery.svg">
+                        <p>Gallery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="plain-popup2" onclick="closepopupplain2()" class="cd-popup" role="alert">
+            <div class="cd-popup-container camera-selection-cont">
+                <div class="row camera-selection">
+                    <div class="col-50" onclick="postTakeAudio()" id="buttonSwapTakeAudio">
+                        <img src="img/icons/mic.svg">
+                        <p>Microphone</p>
+                    </div>
+                    <div class="col-50" onclick="postGetAudio()" id="buttonSwapGetAudio">
+                        <img src="img/icons/headphones.svg">
+                        <p>Stored</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Groups List -->
+        <div class="group-list-outer" id="groupList" style="display:none" onclick="getGroupList(this)">
+            <!--  <div class="row">
+                    <div class="col-15">
+                        <div class="counter-person-icon celeb-post-icon"></div>
+                    </div>
+                    <div class="col-85 col-center">World Biggest Teen Group</div>
+                </div>
+                <div class="row">
+                    <div class="col-15">
+                        <div class="counter-person-icon celeb-post-icon"></div>
+                    </div>
+                    <div class="col-85 col-center">World Biggest Teen Group</div>
+                </div>
+                <div class="row">
+                    <div class="col-15">
+                        <div class="counter-person-icon celeb-post-icon"></div>
+                    </div>
+                    <div class="col-85 col-center">World Biggest Teen Group</div>
+                </div>
+                 -->
+        </div>
+        <!-- SHare Post -->
+        <div class="share-post-outer" id="shareList" onclick="hideShareListing()">
+            <header> Share post in</header>
+            <div class="contact" onclick="openContactList()"><img src="img/icons/chat.svg" />
+                <p>Contacts</p>
+            </div>
+            <div class="groups row" id="groupListShare">
+                <!--   <div class="col-30"><div class="dash-chat-img"></div><p>Group 1</p></div>
+                  <div class="col-30"><div class="dash-chat-img"></div><p>Group 1</p></div>
+                  <div class="col-30"><div class="dash-chat-img"></div><p>Group 1</p></div>
+                  <div class="col-30"><div class="dash-chat-img"></div><p>Group 1</p></div>
+                  <div class="col-30"><div class="dash-chat-img"></div><p>Group 1</p></div> -->
+            </div>
+            <p class="groups-txt">Groups</p>
+        </div>
+        <!-- SEARCH OVERLAY CONTACTS -->
+        <div class="dash-search" id="listingContact">
+            <div class="contact-inner contact-overlay" id="contactListShare" onclick="removeGrpErr()">
+                <!-- #1 -->
+                <!--  <div class="row">
+                     <div class="col-20">
+                         <div class="dash-chat-img contact-person-icon">
+                             <img src="img/list/arya_stark.jpg">
+                         </div>
+                     </div>
+                     <div class="col-70 col-center">
+                         <p class="contact-person-name">Arya Stark</p>
+                         <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999</p>
+                     </div>
+                     <div class="col-10">
+                         <label class="checkbox">
+                             <input type="checkbox">
+                             <div class="checkbox__checkmark"></div>
+                         </label>
+                     </div>
+                 </div> -->
+                <div class="space-5"></div>
+            </div>
+            <div class="err-notify contact-overlay-err" id="displayListErr"></div>
+            <div class="search-header">
+                <div class="search-back" onclick="hideContactListing()">
+                    <img src="img/icons/back_grey.svg" />
+                </div>
+                <div class="search-input">
+                    <input type="search" id="search-input" placeholder="Search for..." />
+                </div>
+                <div class="search-submit" onclick="clearFunction()">
+                    <img src="img/icons/cross.svg" />
+                </div>
+            </div>
+            <button class="button" onclick="sendShareContact()" id="sendShareContactButton">Send</button>
+        </div>
+     
+        <!-- scripts -->
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/emojione.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/pullrefresh.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+        <script>
+        //Search show & hide
+        $("#search").on('click', function() {
+            $(".dash-search").show();
+            document.getElementById("search-input").focus();
+        });
+        $(".search-back").on('click', function() {
+            $(".dash-search").hide();
+        });
+
+        //Clear Search
+        function clearFunction() {
+            document.getElementById("search-input").value = "";
+        }
+
+        //Friend list Popup Show & Hide
+        $("#friends-popup").on('click', function() {
+            $(".friends-group-popup").toggle();
+        });
+        </script>
+</body>
+
+</html>

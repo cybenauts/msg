@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Friend Request</title>
+</head>
+
+<body>
+    <style>
+        .reduce {
+            width: 2em;
+        }
+    </style>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick=" window.history.back()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Search Friends</div>
+        <div class="col-80"></div>
+        <div class="col-10 text-center" id="search"><img src="img/icons/search.svg" /></div>
+    </div>
+    <div class="social-header-space"></div>
+    <!-- BODY -->
+    <div class="contact-cont">
+        <!-- Letter Container -->
+        <div class="letter-cont friend-request">
+            <!-- #1 -->
+            <div class="row">
+                <div class="col-20" onclick="location.href = 'friend_profile.html'">
+                    <div class="dash-chat-img contact-person-icon">
+                    </div>
+                </div>
+                <div class="col-50 col-center" onclick="location.href='singlechat.html'">
+                    <p class="contact-person-name">Arya Stark</p>
+                    <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999</p>
+                </div>
+                <div class="col-30"><button class="button add">Add</button></div>
+            </div>
+            <!-- #2 -->
+            <div class="row">
+                <div class="col-20" onclick="location.href = 'friend_profile.html'">
+                    <div class="dash-chat-img contact-person-icon">
+                    </div>
+                </div>
+                <div class="col-50 col-center" onclick="location.href='singlechat.html'">
+                    <p class="contact-person-name">Arya Stark</p>
+                    <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999</p>
+                </div>
+                <div class="col-30"><button class="button pending">Pending...</button></div>
+            </div>
+            <div class="row friend-request-notify">
+                <div class="col-20" onclick="location.href = 'friend_profile.html'">
+                    <div class="dash-chat-img contact-person-icon">
+                    </div>
+                </div>
+                <div class="col-50 col-center" onclick="location.href='singlechat.html'">
+                    <p class="contact-person-name">Arya Stark</p>
+                    <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999</p>                   
+                </div>
+                <div class="col-30 text-right">
+                   <!--  <div class="dash-chat-notify">
+                        <p>V</p>
+                    </div> -->
+                    <!-- <img src="img/icons/chat.svg" /> -->
+                </div>
+            </div>
+            <div>
+            <div class="row status"><div class="col-20"></div><div class="col-40"><button class="button accept">Accept</button></div> <div class="col-40"><button class="button reject">Reject</button></div> </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <!--<div class="material-notify push-s" onclick="popupOpenbtn2()">
+        <div class="notify-outer">
+            <img src="img/icons/add.svg">
+        </div>
+    </div>-->
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-fixed-search">
+        <div class="search-header">
+            <div class="search-back" onclick="cClear()">
+                <img src="img/icons/back_grey.svg" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." onkeydown="cSearch(this)" onkeyup="cSearch(this)" />
+            </div>
+            <div class="search-submit" onclick="cClear()">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+    </div>
+    <!-- ADD CONTACTS -->
+    <!--<div id="popup-btn2" class="cd-popup" role="alert">
+        <div class="cd-popup-container">
+            <div class="add-contact-head">Add Contact</div>
+            <div class="alert-line"></div>
+            <div class="add-contact">
+                <div>
+                    <input type="text" placeholder="Name">
+                </div>
+                <div>
+                    <input type="tel" placeholder="Number">
+                </div>
+            </div>
+            <div class="alert-line"></div>
+            <div class="row popupbtn2-option">
+                <div class="col-50 push-m" onclick="closepopupbtn2()">Save</div>
+                <div class="col-50 popup2-cancel push-m" onclick="closepopupbtn2()">cancel</div>
+            </div>
+        </div>
+    </div>-->
+    <!-- scripts -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        //Search show & hide
+        $("#search").on('click', function () {
+            $(".dash-fixed-search").show();
+        });
+        $(".search-back").on('click', function () {
+            $(".dash-fixed-search").hide();
+        });
+
+        //Clear Search
+        function clearFunction() {
+            document.getElementById("search-input").value = "";
+        }
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>

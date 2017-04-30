@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Groups</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="location.href = 'home.html'"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Groups</div>
+        <div class="col-80"></div>
+        <div class="col-10 text-center" id="search"><img src="img/icons/search.svg" /></div>
+    </div>
+    <div class="social-header-space"></div>
+    <!-- BODY -->
+    <div class="group-list-cont" id="chatListing">
+        <!-- #1 -->
+        <!--  <div class="row chat-cont-inner" onclick="location.href='group_info.html'">
+            <div class="col-20">
+                <div class="dash-chat-img">
+                    <img src="img/list/arya_stark.jpg" />
+                </div>
+            </div>
+            <div class="col-60 col-center">
+                <div class="dash-chat-name">Arya Stark</div>
+                <label class="dash-chat-desc">Himanshu, Moonis, Shubham, Priya, Prachi</label>
+            </div>
+            <div class="col-20 col-center text-right">
+                <img src="img/icons/chat.svg" />
+            </div>
+        </div> -->
+        <!-- #2 -->
+        <!--   <div class="row chat-cont-inner" onclick="location.href='group_info.html'">
+            <div class="col-20">
+                <div class="dash-chat-img">
+                    <img src="img/list/arya_stark.jpg" />
+                </div>
+            </div>
+            <div class="col-60 col-center">
+                <div class="dash-chat-name">Arya Stark</div>
+                <label class="dash-chat-desc">Himanshu, Moonis, Shubham, Priya, Prachi</label>
+            </div>
+            <div class="col-20 col-center text-right">
+                <img src="img/icons/chat.svg" />
+            </div>
+        </div> -->
+    </div>
+    <!-- FOOTER -->
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-search">
+        <div class="search-header">
+            <div class="search-back">
+                <img src="img/icons/back_grey.svg" onclick="groupClear()" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." onkeydown="groupSearch(this)" onkeyup="groupSearch(this)" />
+            </div>
+            <div class="search-submit" onclick="clearFunction()" id="crossHide" style="display: none">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER (ADD GROUP)-->
+    <div class="material-notify push-s" onclick="location.href = 'addgroup.html'">
+        <img src="img/icons/add.svg">
+    </div>
+    <!-- GROUP LOADER -->
+    <div class="celebrity-loader" id="preLoader">
+        <div class="celebrity-loader-inner">
+            <img src="img/loaders/group.svg" />
+            <div class="loader"></div>
+            <p>Fetching Group List...</p>
+        </div>
+    </div>
+    <!-- Empty Chat Page -->
+    <div class="empty-page-outer" id="blankGroup">
+        <img src="img/alerts/empty_posts.jpg" />
+        <p>No Groups Yet.</p>
+        <p>Create Your Own .</p>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+    //Search show & hide
+    $("#search").on('click', function() {
+        $(".dash-search").show();
+    });
+    $(".search-back").on('click', function() {
+        $(".dash-search").hide();
+    });
+
+    //Clear Search
+    function clearFunction() {
+        document.getElementById("search-input").value = "";
+          document.getElementById("crossHide").style.display = 'none';
+        groupClear();
+    }
+    </script>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+</body>
+
+</html>

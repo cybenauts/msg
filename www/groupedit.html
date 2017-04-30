@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- Emoji -->
+    <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/emojione-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Edit Group</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="location.href='groups.html'"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Edit Group Details</div>
+        <div class="col-90"></div>
+    </div>
+    <div class="social-header-space"></div>
+    <!-- BODY -->
+    <div class="contact-cont">
+        <div class="row add-group-head" onclick="popupOpenplain()">
+            <div class="col-25">
+                <div class="group-icon" id="grpIcon"></div>
+            </div>
+            <div class="col-75 col-center">
+                <p>Change Your Group Image</p>
+            </div>
+        </div>
+        <div class="err-notify" id="displayPhotoErr"></div>
+        <div class="row create-group-name" id="grpNameErr">
+            <div class="col">
+                <input type="text" placeholder="Rename Your Group" id="grpName" onclick="removeGrpErr()" maxlength="32"/>
+            </div>
+        </div>
+         <div class="err-notify" id="displayNameErr"></div>
+         <div class="err-notify" id="displayListErr"></div>
+        
+    <!-- FOOTER -->
+    <div class="celeb-btn">
+        <button class="button" onclick="updateGroup()">Update</button>
+    </div>
+
+      <div class="cd-popup" role="alert" id="loading">
+       <div class="cd-popup-container">
+           <div class="row">
+               <div class="col-20 col-center plain-popup-loader"><div class="loader-1"></div></div>
+               <div class="col-80"><p>Updating Group...</p></div>
+           </div>
+       </div>
+      </div>
+
+        <div id="plain-popup" onclick="closepopupplain()" class="cd-popup" role="alert">
+            <div class="cd-popup-container camera-selection-cont">
+                <div class="row camera-selection">
+                    <div class="col-50" onclick="takeGroupDisplayPhoto()"><img src="img/icons/camera.svg">
+                        <p>Camera</p>
+                    </div>
+                    <div class="col-50" onclick="getGroupDisplayPhoto()"><img src="img/icons/gallery.svg">
+                        <p>Gallery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- scripts -->
+   
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+         <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+     <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+    //Search show & hide
+    $("#emoji-btn").on('click', function() {
+        $(".emoji-container").toggle();
+    });
+    </script>
+</body>
+
+</html>

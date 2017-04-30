@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+     <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Celebrity Profile</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick=" location.href = 'home.html'"><img src="img/icons/left-arrow.svg"></div>
+        <div class="header-title">My Profile</div>
+        <div class="col-80"></div>
+        <div class="col-10 text-center" onclick="location.href = 'edit_celeb_profile.html'"><img src="img/icons/edit.svg"></div>
+    </div>
+    <div class="social-header-space"></div>
+
+        <!-- BODY -->
+        <div class="row create-celeb-cover-outer">
+            <div class="create-celeb-cover" id="coverPic">
+                <div class="celeb-profile-pic"  id="proPic" onclick="profileFullImage(this)"></div>
+            </div>
+        </div>
+
+        <div class="user-profile-details">
+            <p class="name" id="proName"><!-- Daenerys Targaryen --></p>
+            <p class="age" id="proGenderEmail"><!-- Female, daenerya@got.com --></p>
+        </div>
+
+        <div class="user-profile-following celeb-following">
+            <p id="followCount" ><!-- 1.5 K --></p>Followers
+        </div>
+        <div class="user-profile-about" id="proQuote" >
+            <!-- Princess of House Targaryen, Daenerys lives in exile in Essos with her advisors
+            and dragons. Dany rallied the Unsullied of Astapor to her cause and continues
+            to grow the army she needs to take back the throne. -->
+        </div>
+
+        <div class="celebrity-loader" id="preLoader">
+        <div class="celebrity-loader-inner">
+         <img src="img/loaders/celeb.svg" />
+            <div class="loader"></div>
+            <p>Fetching Profile...</p>
+        </div>
+    </div>
+    <!-- Tabular Overlay -->
+    <div class="tabular-overlay-outer tabular-overlay-img" id="imageAction" onclick="this.style.display='none';">
+        <div class="tabular-overlay-inner">
+            <img src="//:0" alt="" id="fullImage">
+        </div>
+    </div>
+        <!-- scripts -->
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/emojione.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+        <script>
+        $("#checkbox").click(function () {
+            $("#check").toggle();
+        });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>OTP</title>
+</head>
+
+<body class="login-bg">
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="login-head">
+        <img src="img/login_img.png" />
+    </div>
+    <!-- BODY -->
+    <div class="list login-form">
+        <div class="item-icon input-icon login-country login-cont err-input">
+            <i class="fa fa-key"></i>
+            <input class="white-clr" type="tel" placeholder="One Time Password" id="phoneNoVerify" onclick="removeErr()" maxlength="6" />
+        </div>
+        <div class="err-notify" id="phoneNoNotify"></div>
+        <div class="otp-wait-time">Wait For <span id="time"></span> min!</div>
+        <!--  <div class="otp-wait-time">
+            Wait for 5:00 min
+        </div> -->
+        <div class="terms-cont">
+            <div class="terms-label">
+                Enter OTP that we have sent on your mobile number <span id="sentPHN"></span>.
+                <url class="text-link" onclick="reSendOtp()">Click here</url>
+                to resend OTP.
+            </div>
+        </div>
+    </div>
+    <div class="space-1"></div>
+    <div class="login-btn">
+        <button class="button" onclick="verifyOtp()">Login</button>
+    </div>
+    <!-- Single Button Pop Up Screen-->
+    <div id="popup-btn1" class="cd-popup" role="alert">
+        <div class="cd-popup-container">
+            <div class="row">
+                <p class="popup-text">Please check your inbox, we have sent you a new OTP.</p>
+            </div>
+            <div class="alert-line"></div>
+            <div class="alert-ok push-m" onclick="closepopupbtn1()">OK</div>
+        </div>
+    </div>
+    <div class="cd-popup" role="alert" id="loading">
+       <div class="cd-popup-container">
+           <div class="row">
+               <div class="col-20 col-center plain-popup-loader"><div class="loader-1"></div></div>
+               <div class="col-80"><p>Verifing O.T.P...</p></div>
+           </div>
+       </div>
+   </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+    $(document).ready(function() {
+        var fiveMinutes = 60 * 5,
+            display = $('#time');
+        startTimer(fiveMinutes, display);
+        document.getElementById("sentPHN").innerHTML = localStorage.getItem("PHN");
+    });
+    </script>
+</body>
+
+</html>

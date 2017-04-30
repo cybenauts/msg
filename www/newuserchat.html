@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- Emoji -->
+    <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/emojione-awesome.css">
+
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>New User Chat</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="location.href='contacts.html'"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Bran</div>
+        <div class="col-65"></div>
+        <div class="col-10 head-attachment" onclick="popupOpenplain()">
+            <img src="img/icons/attachment.svg" />
+        </div>
+        <div class="col-15 col-center" onclick="location.href = 'friend_profile.html'">
+            <div class="counter-person-icon"></div>
+        </div>
+    </div>
+    <div class="social-header-space"></div>
+
+    <!-- BODY -->
+    <div class="contact-cont">
+        <div class="space-1"></div>
+
+        <!-- Chat Bubble 1 -->
+        <div class="row chat section">
+            <div class="col-20"><div class="counter-person-icon"></div></div>
+            <div class="col-80">
+                <div class="msg-sent-cont">
+                    <div class="row">
+                        <div class="col-60">
+                            Bran Stark
+                        </div>
+                        <div class="col-40 text-right">
+                            11:00 PM <span><img src="img/icons/double-tick-indicator.svg" /></span>
+                        </div>
+                    </div>
+                    <p>Hi!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SINGLE CHAT FOOTER -->
+    <div class="msg-writing-cont">
+        <div class="row">
+            <div class="col-15 col-center" id="emoji"><img src="img/icons/emoji.svg" /></div>
+            <div class="col-70 col-center">
+                <input type="text" placeholder="Click here to type something..." />
+            </div>
+            <div class="col-15 col-center"><img src="img/icons/send-button.svg" /></div>
+        </div>
+        <div class="footer-emojis">
+            <div class="row footer-emojis-header">
+                <div class="col-20"><img src="img/icons/history.svg" /></div>
+                <div class="col-20"><img src="img/icons/stickers.svg" /></div>
+                <div class="col-20"><img src="img/icons/stickers.svg" /></div>
+                <div class="col-20"><img src="img/icons/stickers.svg" /></div>
+                <div class="col-20"><img src="img/icons/delete-emoji.svg" /></div>
+            </div>
+            <div class="row">
+                <div class="col-14"><i class="emojione e1a-grinning e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-grimacing e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-grin e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-joy e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-smiley e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-smile e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-sweat_smile e1a-2x"></i></div>
+            </div>
+            <div class="row">
+                <div class="col-14"><i class="emojione e1a-laughing e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-innocent e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-wink e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-innocent e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-blush e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-slight_smile e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-upside_down e1a-2x"></i></div>
+            </div>
+            <div class="row">
+                <div class="col-14"><i class="emojione e1a-relaxed e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-yum e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-relieved e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-heart_eyes e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-kissing_heart e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-kissing e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-kissing_smiling_eyes e1a-2x"></i></div>
+            </div>
+            <div class="row">
+                <div class="col-14"><i class="emojione e1a-kissing_closed_eyes e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-stuck_out_tongue_winking_eye e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-stuck_out_tongue_closed_eyes e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-stuck_out_tongue e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-money_mouth e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-nerd e1a-2x"></i></div>
+                <div class="col-14"><i class="emojione e1a-sunglasses e1a-2x"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attachment Section -->
+    <div id="plain-popup" onclick="closepopupplain()" class="cd-popup" role="alert">
+        <div class="cd-popup-container attach-chat">
+            <div class="row">
+                <div class="col-50"><img src="img/attach_icons/camera.svg" /><p>Camera</p></div>
+                <div class="col-50"><img src="img/attach_icons/gallery.svg" /><p>Album</p></div>
+            </div>
+            <div class="row">
+                <div class="col-50"><img src="img/attach_icons/location.svg" /><p>Location</p></div>
+                <div class="col-50"><img src="img/attach_icons/audio.svg" /><p>Audio</p></div>
+            </div>
+            <div class="row">
+                <div class="col-50"><img src="img/attach_icons/contact.svg" /><p>Contact</p></div>
+                <div class="col-50"><img src="img/attach_icons/files.svg" /><p>Document</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD TO CONTACTS -->
+    <div class="add-to-contacts">
+        <button class="button">Add To Contacts</button>
+        <button class="button">Block</button>
+    </div>
+
+    <!-- scripts -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script>
+        //Emoji show & hide
+        $("#emoji").on('click', function () {
+            $(".footer-emojis").toggle();
+        });
+    </script>
+
+</body>
+</html>

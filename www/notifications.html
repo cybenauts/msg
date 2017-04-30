@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Notifications</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+    <div class="header header-fixed">
+        <div class="col-10 text-center" onclick="window.location.href='home.html'"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Notifications</div>
+        <div class="col-75"></div>
+        <div class="col-15 col-center"></div>
+    </div>
+    <div class="social-header-space"></div>
+    <div id="notifyList"></div>
+     <!-- Initiate Loader Next -->
+        <div class="celeb-profile-load-more"  onclick="toggleNotifyLoader()">
+            <p id="loadMore">Load More</p>
+            <div class="loading-more-posts" id="postLoader">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>
+    <!-- BODY -->
+    <!-- Notification 1 -->
+   <!--  <div class="row notify-outer unread-notify">
+        <div class="col-25"><div class="dash-chat-img"></div><div class="unread-dot"></div></div>
+        <div class="col-75 col-center"><bold>Mr Dexter</bold> commented on your photo.<div class="time"><i class="fa fa-clock-o"></i> Just Now</div></div>
+    </div> -->
+
+    <!-- Notification 2 -->
+   <!--  <div class="row notify-outer unread-notify">
+        <div class="col-25"><div class="dash-chat-img"></div><div class="unread-dot"></div></div>
+        <div class="col-75 col-center"><bold>Mr Chad</bold> posted a picture on your wall.<div class="time"><i class="fa fa-clock-o"></i> 1 hr ago</div></div>
+    </div> -->
+
+    <!-- Date Seperator -->
+   <!--  <div class="row notify-date-seperator">
+        <div class="col-40"></div>
+        <div class="col-20"> 2 Feb 2017</div>
+        <div class="col-40"></div>
+    </div> -->
+
+    <!-- Notification 3 -->
+<!--     <div class="row notify-outer">
+        <div class="col-25"><div class="dash-chat-img"></div></div>
+        <div class="col-75 col-center"><bold>Mr Sky</bold> liked your profile picture.<div class="time"><i class="fa fa-clock-o"></i> 3 hr ago</div></div>
+    </div>
+ -->
+    <!-- Notification 4 -->
+  <!--   <div class="row notify-outer">
+        <div class="col-25"><div class="dash-chat-img"></div></div>
+        <div class="col-75 col-center"><bold>Mr Sky</bold> liked your profile picture.<div class="time"><i class="fa fa-clock-o"></i> 5 hr ago</div></div>
+    </div>
+ -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+
+</body>
+</html>

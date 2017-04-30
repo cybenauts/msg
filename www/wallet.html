@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>My Wallet</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="goBack()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">My Wallet</div>
+        <div class="col-90"></div>
+    </div>
+    <div class="social-header-space"></div>
+
+    <!-- BODY -->
+    
+    
+    <!-- BUTTON -->
+    <div class="wallet-cover">
+        <div class="wallet-head"><i class="fa fa-credit-card-alt"></i> MSG Balance</div>
+        <p class="wallet-money">Rs 200/- </p>
+        <p class="total-points">(Total Points - 500)</p>
+    </div>
+
+    <div class="wallet-input">
+        <input type="text" value="Rs 50/-" />
+    </div>
+
+    <div class="wallet-input">
+        <select id="operatorList">
+            
+        </select>
+    </div>
+
+    <div class="wallet-input">
+        <input type="tel" value="+91 9999999999" />
+    </div>
+
+    <div class="space-1"></div>
+    <div class="login-btn">
+        <button class="button" onclick="location.href='otp.html'">RECHARGE NOW</button>
+    </div>
+  
+   <!-- CHAT LOADER -->
+    <div class="celebrity-loader" id="preLoader">
+        <div class="celebrity-loader-inner">
+            <img src="img/loaders/chat.svg" />
+            <div class="loader"></div>
+            <p>Fetching Wallet Points...</p>
+        </div>
+    </div>
+    <!-- scripts -->
+     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+     <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+        //Search show & hide
+        $("#search").on('click', function () {
+            $(".dash-search").show();
+        });
+        $(".search-back").on('click', function () {
+            $(".dash-search").hide();
+        });
+
+        //Clear Search
+        function clearFunction() {
+            document.getElementById("search-input").value = "";
+        }
+
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

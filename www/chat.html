@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Social</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+     <div class="row header header-fixed row-center">
+        <div class="col-10 text-center" id="header"><img src="img/icons/menu.svg" /></div>
+        <div class="header-title">MSG</div>
+        <div class="col-70"></div>
+        <div class="col-10 col-center" onclick="location.href = 'notifications.html'"><img src="img/icons/notification.svg" /><div class="header-notify" id="notificationCount">0</div></div>
+        <div class="col-10 text-center" id="search"><img src="img/icons/search.svg" /></div>
+    </div>
+    <!-- NAVIGATION -->
+    <div class="wrap" id="wrap"></div>
+    <div class="nav nav-closed" id="nav">
+        <div class="nav-content">
+            <div class="nav-cover">
+                <div class="side-nav-profile" id="profilePicture"></div>
+                <p id="profileQuote"></p>
+            </div>
+            <ul class="list side-nav-list msg-side-nav">
+                <li class="item item-icon" onclick="location.href = 'profile.html'"><img src="img/side_nav/profile.svg" /> My Profile</li>
+                <li class="item item-icon" onclick="location.href = 'groups.html'"><img src="img/side_nav/groups.svg" /> Groups</li>
+                 <li id="celebStatus" style="display:none" class="item item-icon" onclick="location.href = 'celeb_posts.html'"><img src="img/side_nav/my_page.svg" /> My Page</li>
+                <li class="item item-icon" onclick="location.href = 'contacts.html'"><img src="img/side_nav/contacts.svg" /> Contacts</li>
+                <!-- <li class="item item-icon" onclick="location.href = 'wallet.html'"><img src="img/side_nav/wallet.svg" /> Wallet</li> -->
+                <!-- <li class="item item-icon" onclick="location.href = 'stickers.html'"><img src="img/side_nav/stickers.svg" /> Stickers</li> -->
+                <li class="item item-icon" onclick="location.href = 'privacy.html'"><img src="img/side_nav/privacy.svg" /> Privacy Policy</li>
+                <li class="item item-icon" onclick="appSharing()"><img src="img/side_nav/share.svg" /> Share MSG</li>
+            </ul>
+        </div>
+    </div>
+
+     <!-- BODY -->
+    <div class="content">
+        <!-- Header Space -->
+        <div class="social-header-space"></div>
+        <div class="tabs-outer">
+            <div class="tabs-cont">
+                <div class="inner-tabs" onclick="location.href='social.html'">
+                    SOCIAL
+                </div>
+                <div class="inner-tabs" onclick="location.href='home.html'">
+                    <p>HOME</p>
+                </div>
+                <div class="inner-tabs selected-tab" >
+                    <p>CHAT</p>
+                </div>
+            </div>
+        </div>
+        <!-- Tabs Space -->
+        <div class="space-25"></div>
+
+        <div class="chat-cont" id="chatListing">
+          <!--   <div class="row chat-cont-inner" onclick="location.href='singlechat.html'">
+                <div class="col-20">
+                    <div class="dash-chat-img">
+                        <img src="img/list/arya_stark.jpg" />
+                    </div>
+                </div>
+                <div class="col-80">
+                    <div class="dash-chat-notify">
+                        <label>9.50am</label>
+                        <p>4</p>
+                    </div>
+                    <div class="dash-chat-name">Arya Stark</div>
+                    <label class="dash-chat-desc">The younger of the Stark daughters.</label>
+
+                </div>
+            </div>
+ -->
+
+            <!-- <div class="row chat-cont-inner" onclick="location.href='singlechat.html'">
+                <div class="col-20">
+                    <div class="dash-chat-img">
+                        <img src="img/list/arya_stark.jpg" />
+                    </div>
+                </div>
+                <div class="col-80">
+                    <div class="dash-chat-notify">
+                        <label>9.50am</label>
+                        <p>4</p>
+                    </div>
+                    <div class="dash-chat-name">Arya Stark</div>
+                    <label class="dash-chat-desc">The younger of the Stark daughters.</label>
+
+                </div>
+            </div> -->
+
+        </div>
+        
+    </div>
+
+    <!-- FOOTER (Contacts)-->
+    <div class="material-notify push-s" onclick="location.href='contacts.html'">
+            <img src="img/icons/add.svg">
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-search">
+        <div class="search-header">
+            <div class="search-back" onclick="chatClear()">
+                <img src="img/icons/back_grey.svg" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." onkeydown="chatSearch(this)" onkeyup="chatSearch(this)" />
+            </div>
+            <div class="search-submit" onclick="clearFunction()"  id="crossHide" style="display: none">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAT LOADER -->
+    <div class="celebrity-loader" id="preLoader">
+        <div class="celebrity-loader-inner">
+            <img src="img/loaders/chat.svg" />
+            <div class="loader"></div>
+            <p>Fetching Chat List...</p>
+        </div>
+    </div>
+
+     <!-- Empty Chat Page -->
+    <div class="empty-page-outer" id="blankChat">
+        <img src="img/alerts/empty_chat.jpg" />
+        <p>This Chat Is Empty.</p>
+        <p>Be The First One To Start It.</p>
+    </div>
+ <!-- Tabular Overlay -->
+    <div class="tabular-overlay-outer" id="chatAction" onclick="this.style.display='none';">
+        <div class="tabular-overlay-inner">
+            <ul class="list tabular-overlay-list" id="chatActionOptions">
+               
+            </ul>
+        </div>
+    </div>
+    <!-- scripts -->
+    
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+     <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+        //Search show & hide
+        $("#search").on('click', function () {
+            $(".dash-search").show();
+        });
+        $(".search-back").on('click', function () {
+            $(".dash-search").hide();
+        });
+
+        //Clear Search
+        function clearFunction() {
+            document.getElementById("search-input").value = "";
+             document.getElementById("crossHide").style.display = 'none';
+             chatClear();
+        }
+
+
+// (function() { 
+//     // how many milliseconds is a long press?
+//     var longpress = 3000;
+//     // holds the start time
+//     var start;
+
+//     $( ".selected-tab" ).on( 'mousedown', function( e ) {
+//         start = new Date().getTime();
+//         console.log("down:"+start);
+//     } );
+
+//     $( ".selected-tab" ).on( 'mouseleave', function( e ) {
+//         start = 0;
+//         console.log("leave:"+start);
+//     } );
+
+//     $( ".selected-tab" ).on( 'mouseup', function( e ) {
+//         console.log("up:"+start+":"+longpress);
+//         if ( new Date().getTime() >= ( start + longpress )  ) {
+//            alert('long press!');   
+//         } else {
+//            alert('short press!');   
+//         }
+//     } );
+// }());
+// var pressTimer;
+
+// $(".chat-cont-inner").mouseup(function(){
+//   clearTimeout(pressTimer);
+//   return false;
+// }).mousedown(function(){
+//   pressTimer = window.setTimeout(function() { alert("DELETE");},1000);
+//   return false; 
+// });
+// $(".selected-tab" ).on("tap",function(){
+//   alert('press!');   
+// });
+
+    </script>
+
+</body>
+</html>

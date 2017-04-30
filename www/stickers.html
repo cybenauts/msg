@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Stickers</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Styling for android devices
+        if (/Android/i.test(navigator.userAgent)) {
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick="goBack()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title">Stickers</div>
+        <div class="col-90"></div>
+    </div>
+    <div class="social-header-space"></div>
+
+    <!-- BODY -->
+    <div class="row stickers-outer">
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+    </div>
+    <div class="row stickers-outer">
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+    </div>
+    <div class="row stickers-outer">
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+    </div>
+    <div class="row stickers-outer">
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="stickers-inner">
+                <div class="sticker-upload-outer"><div id="myProgress"><div class="myBar"></div></div></div>
+                <img src="img/pictures/transparent.png" />
+            </div>
+        </div>
+    </div>    
+
+    <!-- BUTTON -->
+    <div class="login-btn">
+        <button class="button" onclick="location.href='otp.html'">SUBMIT</button>
+    </div>
+
+    <!-- scripts -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script>
+        //Search show & hide
+        $("#search").on('click', function () {
+            $(".dash-search").show();
+        });
+        $(".search-back").on('click', function () {
+            $(".dash-search").hide();
+        });
+
+        //Clear Search
+        function clearFunction() {
+            document.getElementById("search-input").value = "";
+        }
+
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

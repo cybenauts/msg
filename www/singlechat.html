@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- Emoji -->
+    <link rel="stylesheet" type="text/css" href="css/emojione.css">
+    <link rel="stylesheet" type="text/css" href="css/emojione-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/ferah.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Script -->
+    <script src="cordova.js"></script>
+    <title>Single Chat</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // Styling for android devices
+    if (/Android/i.test(navigator.userAgent)) {
+        document.body.style.fontSize = "16px";
+    }
+    </script>
+    <!-- HEADER -->
+    <div class="row header header-fixed">
+        <div class="col-10 text-center" onclick=" window.history.back()"><img src="img/icons/left-arrow.svg" /></div>
+        <div class="header-title" id="chatterName">
+            <!-- Bran -->
+        </div>
+        <div class="col-65">
+            <div class="online-status" id="onlineStatus">
+                <p>Online</p>
+            </div>
+        </div>
+        <div class="col-10 head-attachment" onclick="popupOpenplain()">
+            <img src="img/icons/attachment.svg" />
+        </div>
+        <div class="col-15 col-center" onclick="location.href = 'friend_profile.html'">
+            <div class="counter-person-icon" id="chatterProImage"></div>
+        </div>
+    </div>
+    <div class="social-header-space"></div>
+    <!-- BODY -->
+    <!-- 
+    <div class="celeb-profile-load-more" id="loadMore" onclick="fetchNextSingleChat()">
+        <p>Load More</p>
+        <p>...</p>
+    </div> -->
+    <div class="celeb-profile-load-more" onclick="fetchNextSingleChat()">
+        <p id="loadMore">Load More</p>
+        <div class="loading-more-posts" id="postLoader">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+        </div>
+    </div>
+    <div class="contact-cont" id="chat">
+        <!--  <div class="space-1"></div> -->
+        <!-- Chat Bubble Video -->
+        <!--   <div class="row chat section">
+            <div class="col-20">
+            </div>
+            <div class="col-80">
+                <div class="msg-sent-cont">
+                    <div class="row">
+                        <div class="col-60">
+                        </div>
+                        <div class="col-40 text-right">
+                            11:00 PM <span><img src="img/icons/double-tick-indicator.svg" /></span>
+                        </div>
+                    </div>
+                    <p class="msg-bubble-img" >
+                    <source src="http://test.terasol.in/moonis/msg/136/video/vid136_1481009064_548344.mp4" type="">
+                        <div class="msg-bubble-img-loader row row-center">
+                            <div class="stop-upload push-s"><img src="img/icons/close.svg" /></div>
+                            <div class="loader"></div>
+                        </div>
+
+                    </video>
+                    <p> khfgdskhgf </p>
+                </div>
+                <div class="msg-upload-progress-cont">
+                    <div class="msg-upload-progress"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Chat Bubble 2 -->
+        <!-- <div class="row chat section">
+            <div class="col-80">
+                <div class="msg-sent-cont msg-sent-cont-alt">
+                    <div class="row">
+                        <div class="col-40">
+                            11:00 PM <span><img src="img/icons/double-tick-indicator.svg" /></span>
+                        </div>
+                        <div class="col-60 text-right">
+                            Mee
+                        </div>
+                    </div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+            <div class="col-20"><div class="counter-person-icon"></div></div>
+        </div> -->
+        <div class='msg-writing-cont-margin'></div>
+    </div>
+    <!-- SINGLE CHAT FOOTER -->
+    <div class="msg-writing-cont">
+        <div class="row">
+            <div class="col-15 col-center" id="emoji"><img src="img/icons/emoji.svg" /></div>
+            <!--  <div class="col-15 col-center" ></div> -->
+            <div class="col-70 col-center">
+                <input type="text" placeholder="Click here to type something..." id="chatMessage" onpaste="sendStatusEn()" onkeyup="sendStatus(this)" />
+            </div>
+            <div class="col-15 col-center" id="sendEnable" style="display:none" onclick="sendSingleChat()"><img src="img/icons/send-button.svg" /></div>
+            <div class="col-15 col-center" id="sendDisable" onclick=""><img src="img/icons/send-button-gray.svg" /></div>
+        </div>
+        <div id="tabContainer" class="footer-emojis">
+            <div id="tabs" class="footer-emojis-header">
+                <ul>
+                    <li id="tabHeader_1"><img src="emoji/category/people.svg" /></li>
+                    <li id="tabHeader_2"><img src="emoji/category/nature.svg" /></li>
+                    <li id="tabHeader_3"><img src="emoji/category/foods.svg" /></li>
+                    <li id="tabHeader_4"><img src="emoji/category/activity.svg" /></li>
+                    <li id="tabHeader_5"><img src="emoji/category/travel.svg" /></li>
+                    <li id="tabHeader_6"><img src="emoji/category/objects.svg" /></li>
+                    <li id="tabHeader_7"><img src="emoji/category/symbols.svg" /></li>
+                    <li id="tabHeader_8"><img src="emoji/category/flags.svg" /></li>
+                    <li id="tabHeader_9"><img src="emoji/category/diversity.svg" /></li>
+                    <li id="deletePrev"><img src="emoji/category/delete.svg" /></li>
+                </ul>
+            </div>
+            <!--<div class="space-"></div>-->
+            <div id="tabscontent">
+                <div class="tabpage" id="tabpage_1"> </div>
+                <div class="tabpage" id="tabpage_2"> </div>
+                <div class="tabpage" id="tabpage_3"> </div>
+                <div class="tabpage" id="tabpage_4"> </div>
+                <div class="tabpage" id="tabpage_5"> </div>
+                <div class="tabpage" id="tabpage_6"> </div>
+                <div class="tabpage" id="tabpage_7"> </div>
+                <div class="tabpage" id="tabpage_8"> </div>
+                <div class="tabpage" id="tabpage_9"> </div>
+                <div class="tabpage" id="tabpage_10"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- Attachment Section -->
+    <div id="plain-popup" onclick="closepopupplain()" class="cd-popup" role="alert">
+        <div class="cd-popup-container attach-chat">
+            <div class="row">
+                <div class="col-50" onclick="chatPhotoOptions()"><img src="img/attach_icons/camera.svg" />
+                    <p>Image</p>
+                </div>
+                <div class="col-50" onclick="chatVideoOptions()"><img src="img/attach_icons/video.svg" />
+                    <p>Video</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50" onclick="chatTakeLocation()"><img src="img/attach_icons/location.svg" />
+                    <p>Location</p>
+                </div>
+                <div class="col-50" onclick="chatAudioOptions()"><img src="img/attach_icons/audio.svg" />
+                    <p>Audio</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50" onclick="chatTakeContact()"><img src="img/attach_icons/contact.svg" />
+                    <p>Contact</p>
+                </div>
+                <div class="col-50" onclick="chatTakeFile()"><img src="img/attach_icons/files.svg" />
+                    <p>Document</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video -->
+    <div class="send-attach-outer" id="preBubbleVideo">
+        <div class="status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="bubbleDescVideo"></textarea>
+        </div>
+        <div class="send-attach-img">
+            <video controls>
+                <source src="movie.mp4" type="video/mp4" id="preBubbleImgVideo">
+            </video>
+        </div>
+        <button class="button" onclick="chatUploadVideo()">POST</button>
+        <p onclick="closeChatPopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Audio -->
+    <div class="send-attach-outer" id="preBubbleAudio">
+        <div class="status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="bubbleDescAudio"></textarea>
+        </div>
+        <div class="send-attach-img">
+            <audio controls>
+                <source src="audio.mp3" type="audio/mpeg" id="preBubbleImgAudio">
+            </audio>
+        </div>
+        <button class="button" onclick="chatUploadAudio()">POST</button>
+        <p onclick="closeChatPopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Image -->
+    <div class="send-attach-outer" id="preBubblePhoto">
+        <div class="status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="bubbleDescPhoto"></textarea>
+        </div>
+        <div class="row status-update-pic-cont" style="overflow-x: scroll;" id="multiImage">
+            <!-- <div class="col">
+                <div class="status-update-pic">
+                    <div class="send-attach-img" id="preBubbleImgPhoto"></div>
+                </div>
+            </div> -->
+
+        </div>
+        <button class="button" onclick="chatUploadMultiPhoto()">POST</button>
+        <p onclick="closeChatPopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- File -->
+    <div class="send-attach-outer" id="preBubbleFile">
+        <div class="status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="bubbleDescFile"></textarea>
+        </div>
+        <div class="send-attach-img" id="preBubbleImgFile"></div>
+        <button class="button" onclick="chatUploadFile()">POST</button>
+        <p onclick="closeChatPopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- Contact -->
+    <div class="send-attach-outer" id="preBubbleContact">
+        <div class="status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="bubbleDescContact"></textarea>
+        </div>
+        <div class="send-attach-img" id="preBubbleImgContact"></div>
+        <button class="button" onclick="chatUploadContact()">POST</button>
+    </div>
+    <!-- Map -->
+    <div class="send-attach-outer" id="preBubbleMap">
+        <div class="status-update-cont">
+            <textarea rows="2" cols="50" placeholder="Caption?" id="bubbleDescMap"></textarea>
+        </div>
+        <div class="loader map-loader"></div>
+        <div class="send-attach-img" id="preBubbleImgMap"></div>
+        <button class="button" onclick="chatUploadLocation()">POST</button>
+        <p onclick="closeChatPopup()"><img src="img/icons/cancel.svg" /></p>
+    </div>
+    <!-- SEARCH OVERLAY -->
+    <div class="dash-search" id="listingContact">
+        <div class="contact-inner contact-overlay" id="contactList" onclick="removeGrpErr()">
+            <!-- #1 -->
+            <!--  <div class="row">
+                <div class="col-20">
+                    <div class="dash-chat-img contact-person-icon">
+                        <img src="img/list/arya_stark.jpg">
+                    </div>
+                </div>
+                <div class="col-70 col-center">
+                    <p class="contact-person-name">Arya Stark</p>
+                    <p class="contact-person-num"><i class="fa fa-phone"></i> +91 9999999999</p>
+                </div>
+                <div class="col-10">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <div class="checkbox__checkmark"></div>
+                    </label>
+                </div>
+            </div> -->
+            <div class="space-5"></div>
+        </div>
+        <div class="err-notify contact-overlay-err" id="displayListErr"></div>
+        <div class="search-header">
+            <div class="search-back" onclick="hideContactListing()">
+                <img src="img/icons/back_grey.svg" />
+            </div>
+            <div class="search-input">
+                <input type="search" id="search-input" placeholder="Search for..." onkeyup="chatTakeContactSearch(this)" />
+            </div>
+            <div class="search-submit" onclick="clearFunction()">
+                <img src="img/icons/cross.svg" />
+            </div>
+        </div>
+        <button class="button" onclick="sendContact()">Send</button>
+    </div>
+    <!-- Submenu For Attachment Section -->
+    <div class="attach-sub-menu" id="photoAttach" onclick="closeAttachOptions()">
+        <div class="attach-sub-menu-inner">
+            <div class="row">
+                <div class="col-50" onclick="chatTakePhoto()">
+                    <img src="img/attach_icons/camera.svg" />
+                    <p>Camera</p>
+                </div>
+                <div class="col-50" onclick="chatGetPhoto()">
+                    <img src="img/attach_icons/gallery.svg" />
+                    <p>Gallery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="attach-sub-menu" id="videoAttach" onclick="closeAttachOptions()">
+        <div class="attach-sub-menu-inner">
+            <div class="row">
+                <div class="col-50" onclick="chatTakeVideo()">
+                    <img src="img/attach_icons/camera.svg" />
+                    <p>Camera</p>
+                </div>
+                <div class="col-50" onclick="chatGetVideo()">
+                    <img src="img/attach_icons/gallery.svg" />
+                    <p>Gallery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="attach-sub-menu" id="audioAttach" onclick="closeAttachOptions()">
+        <div class="attach-sub-menu-inner">
+            <div class="row">
+                <div class="col-50" onclick="chatTakeAudio()">
+                    <img src="img/icons/audio.svg" />
+                    <p>Microphone</p>
+                </div>
+                <div class="col-50" onclick="chatGetAudio()">
+                    <img src="img/attach_icons/files.svg" />
+                    <p>Stored</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tabular Overlay -->
+    <div class="tabular-overlay-outer" id="chatAction" onclick="this.style.display='none';">
+        <div class="tabular-overlay-inner">
+            <ul class="list tabular-overlay-list" id="chatActionOptions">
+            </ul>
+        </div>
+    </div>
+    <!-- file Downloading -->
+    <div id="popupNotification" class="notificationOuter" role="alert">
+        <div class="notificationInner row row-center" id="popupNotificationText">
+            <p>File Downloading Started...</p>
+        </div>
+    </div>
+    <!-- Tabular Overlay -->
+    <div class="tabular-overlay-outer tabular-overlay-img" id="imageAction" onclick="this.style.display='none';">
+        <div class="tabular-overlay-inner">
+            <img src="//:0" alt="" id="fullImage">
+        </div>
+    </div>
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/emojione.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOLINb7Zq54Mikk7hlTQMCDWbyEOzX75E&libraries=places&callback=getPosition"></script>
+    <script>
+    //Emoji show & hide
+    var spaceSwap = true;
+    $("#emoji").on('click', function() {
+        document.getElementById("chatMessage").blur();
+        populateEmoji(1);
+        $(".footer-emojis").slideToggle('200');
+        var dispe = $(".footer-emojis").css("display");
+        if (spaceSwap) {
+            document.getElementById('chat').style.paddingBottom = '15em';
+            $('html, body').scrollTop($(document).height());
+            spaceSwap = false;
+        } else {
+            document.getElementById('chat').style.paddingBottom = '0em';
+            $('html, body').scrollTop($(document).height());
+            spaceSwap = true;
+        }
+
+    });
+    $("#chatMessage").on('click', function() {
+        var disp = $(".footer-emojis").css("display");
+        if (disp == "block") {
+            $(".footer-emojis").hide();
+            if (spaceSwap) {
+                document.getElementById('chat').style.paddingBottom = '15em';
+                $('html, body').scrollTop($(document).height());
+                spaceSwap = false;
+            } else {
+                document.getElementById('chat').style.paddingBottom = '0em';
+                $('html, body').scrollTop($(document).height());
+                spaceSwap = true;
+            }
+        } else {
+
+        }
+
+        $('html, body').scrollTop($(document).height());
+    });
+    $("#deletePrev").on('click', function() {
+        removeText();
+    });
+    </script>
+</body>
+
+</html>
