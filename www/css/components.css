@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Grids Demo Styling
+   ========================================================================== */
+
+.col-demo {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background: #f7f7f7;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Splashscreen
+   ========================================================================== */
+
+.splash-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+    .splash-background img {
+        width: 80%;
+        padding-top: 30%;
+    }
+
+    .splash-background p {
+        font-weight: bold;
+        font-size: 1.25em;
+        margin-top: 2em;
+    }
+
+.splash-footer {
+    position: absolute;
+    bottom: 17px;
+}
+
+    .splash-footer img {
+        width: 10%;
+        padding: 0;
+        vertical-align: middle;
+        padding-left: 10px;
+    }
+
+/* ==========================================================================
+   Navigation Slider
+   ========================================================================== */
+
+.nav-cover {
+    width: 100%;
+    text-align: center;
+    /* background-image: url(../img/list/arya_stark.jpg); */
+    background-size: cover;
+    background-position: 50%;
+    padding: 1.9em 0;
+}
+
+    .nav-cover img {
+        width: 37%;
+        border-radius: 50%;
+        margin-top: 2em;
+        margin-bottom: 0em;
+    }
+
+    .nav-cover p {
+        padding: 1em;
+        color: #000;
+        margin-top: 1em;
+        font-size: 0.85em;
+        text-align: left;
+        font-family: 'OpenSans-Semibold';
+        line-height: 1.3em;
+    }
+
+.side-nav-profile {
+    color: #435ba3;
+    background-color: #fff;
+    width: 5.5em;
+    height: 5.5em;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-image: url(../img/list/arya_stark.jpg);
+    background-size: cover;
+    background-position: 50%;
+    border: 2px solid #fff;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.side-nav-list .item-icon i {
+    vertical-align: middle;
+    margin-bottom: 0.1em;
+    font-size: 1.4em;
+    padding: 0.3em 0;
+    width: 3em;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+.demo-icons {
+    padding: 1em 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+    .demo-icons i {
+        width: 20%;
+    }
+/* ==========================================================================
+   Tabular Overlay
+   ========================================================================== */
+.tabular-overlay-outer {
+    display: table;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    background-color: rgba(0,0,0,0.1);
+      display: none;
+}
+
+.tabular-overlay-inner {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.tabular-overlay-list {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+
+.tabular-overlay-img {
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+}
+
+.tabular-overlay-inner img {
+    width: 100%;
+       background: url('../img/bg/loading.gif') no-repeat;
+       background-size: cover;
+    background-position: 50%;
+}
+.map-loader{
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    z-index: 999;
+}
